@@ -1,5 +1,4 @@
 import { CssBaseline } from '@material-ui/core'
-
 import { RouteComponentProps, Router } from '@reach/router'
 import React, { lazy, ReactElement, StrictMode, Suspense } from 'react'
 import ReactDOM from 'react-dom'
@@ -8,6 +7,7 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 
 const NotFound = lazy(() => import('./pages/404'))
+const Login = lazy(() => import('./pages/login'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
 
@@ -18,7 +18,7 @@ const Application = () => {
       <ThemeContainer>
         <SnackbarContainer>
           <Router>
-            <RouterPage path="/" pageComponent={<NotFound />} />
+            <RouterPage path="/" pageComponent={<Login />} />
             <RouterPage default pageComponent={<NotFound />} />
           </Router>
         </SnackbarContainer>

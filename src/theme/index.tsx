@@ -57,6 +57,9 @@ const getTheme = (type: PaletteType = 'light'): Theme => {
             },
             body: {
               fontFamily: fontFamily,
+              width: '100vw',
+              height: '100vh',
+              boxSizing: 'border-box',
             },
           },
         },
@@ -102,7 +105,7 @@ const getTheme = (type: PaletteType = 'light'): Theme => {
   theme.overrides = {}
   theme.overrides.MuiInputBase = {
     root: {
-      width: '13em',
+      width: '16em',
     },
   }
 
