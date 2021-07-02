@@ -37,8 +37,15 @@ const defaultState: State = {
 interface SnackbarContextType {
   handleSnackbarSet: (message: string, type?: string) => void
 }
-const SnackBarContext = createContext<State | undefined>(undefined)
-const SnackbarSetContext = createContext<SnackbarContextType | undefined>(undefined)
+
+const defaultSnackbarContext: SnackbarContextType = {
+  handleSnackbarSet: (message: string, type?: string) => {
+    return null
+  },
+}
+
+const SnackBarContext = createContext<State>(defaultState)
+const SnackbarSetContext = createContext<SnackbarContextType>(defaultSnackbarContext)
 type PropsContainer = {
   children: ReactNode
 }
@@ -93,6 +100,6 @@ const SnackbarContainer = ({ children }: PropsContainer): any => {
     </SnackBarContext.Provider>
   )
 }
-const useSetSnackbar = (): SnackbarContextType | undefined => useContext(SnackbarSetContext)
-const useSnackBarState = (): State | undefined => useContext(SnackBarContext)
+const useSetSnackbar = (): SnackbarContextType => useContext(SnackbarSetContext)
+const useSnackBarState = (): State => useContext(SnackBarContext)
 export { SnackbarContainer, useSnackBarState, useSetSnackbar }

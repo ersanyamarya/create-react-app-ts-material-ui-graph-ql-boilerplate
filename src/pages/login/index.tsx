@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react'
 import { useTextField } from '../../components'
 import useStyles from './styles'
 import { useNavigate } from '@reach/router'
-export default function NotFound(): ReactElement {
+export default function Login(): ReactElement {
   const classes = useStyles()
   const navigate = useNavigate()
   const [userId, userIDProps] = useTextField('text', 'UserID')
